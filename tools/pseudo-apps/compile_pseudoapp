@@ -1,0 +1,25 @@
+if [ $# -eq 0 ]
+then
+	echo Usage: $0 "<pseudoapp> <traceformat>"
+elif [ $# -gt 2 ]
+then
+        echo "Only 2 arguments needed"
+        echo Usage: $0 "<pseudoapp> <traceformat>"
+else
+	if [ $# -eq 1 ]
+	then
+		echo "Only one argument defined. Using default format (trc)"
+		trc_format=trc
+	else
+		trc_format=${2}
+	fi
+	if [ ! -e ${1}.c ]
+	then
+		echo  PseudoApp name is invalid: ${1}
+	elif [ ! -e ${trc_format}.c ]
+	then
+		echo Traceformat is invalid: ${trc_format}
+	else 
+		gcc -O3 -o ${1} ${1}.c ${trc_format}.c event.c
+	fi
+fi
