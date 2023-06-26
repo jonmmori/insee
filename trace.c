@@ -53,6 +53,8 @@ void diagonal_placement();
 void icube_placement();
 void circulant_placement();
 void file_placement();
+void apx_placement();
+void apx_traces();
 
 long **translation;	///< A matrix containing the simulation nodes for each trace task.
 
@@ -109,38 +111,45 @@ void read_trace(){
 		case FILE_PLACE:
 			file_placement();
 			break;
+        case MPA_PLACE:
+            break;
 		default:
 			panic("Undefined placement strategy");
 			break;
 	}
+    if(placement==MPA_PLACE){
+        apx_placement();
+        apx_traces();
+    }else{
+        if((ftrc = fopen(trcfile, "r")) == NULL){
+            char message[100];
+            sprintf(message, "Trace file not found in current directory - %s",trcfile);
+            panic(message);
+        }
+        c=(char)fgetc(ftrc);
+        fclose(ftrc);
 
-	if((ftrc = fopen(trcfile, "r")) == NULL){
-		char message[100];
-		sprintf(message, "Trace file not found in current directory - %s",trcfile);
-		panic(message);
-	}
-	c=(char)fgetc(ftrc);
-	fclose(ftrc);
+        switch (c){
+            case '#':
+                read_dimemas();
+                break;
+            case '-':
+                read_alog();
+                break;
+            case 'c':
+            case 's':
+            case 'r':
+                read_fsin_trc();
+                break;
+            case -1:
+                printf("WARNING: Trace file is empty!!!\n");
+                break;
+            default:
+                panic("Unsupported trace format");
+                break;
+        }
+    }
 
-	switch (c){
-		case '#':
-			read_dimemas();
-			break;
-		case '-':
-			read_alog();
-			break;
-		case 'c':
-		case 's':
-		case 'r':
-			read_fsin_trc();
-			break;
-		case -1:
-			printf("WARNING: Trace file is empty!!!\n");
-			break;
-		default:
-			panic("Unsupported trace format");
-			break;
-	}
 }
 
 void trace_finish(){
@@ -761,18 +770,17 @@ void quadrant_placement() {
 	for (i=0; i<nprocs; i++)
 	    network[i].source=INDEPENDENT_SOURCE;
 
-	n1=nodes_x/2;
+	n1=nodes_per_dim[D_X]/2;
 	if (ndim>1)
-		n2=nodes_y/2;
+		n2=nodes_per_dim[D_Y]/2;
 	if (ndim>2)
-		n3=nodes_z/2;
-
+		n3=nodes_per_dim[D_Z]/2;
 	for (j=0; j<trace_instances; j++)
 		for (i=0; i<trace_nodes; i++){
 			c1=(i%n1) + ((j%2)*n1);
 			c2=((i/n1)%n2) + (((j/2)%2)*n2);
 			c3=((i/(n1*n2))%n3) + (((j/4)%2)*n3);
-			d=c1 + (c2*nodes_x)+(c3*nodes_x*nodes_y);
+			d=c1 + (c2*nodes_per_dim[D_X])+(c3*nodes_per_dim[D_X]*nodes_per_dim[D_Y]);
 			translation[i][j]=d;
 			network[d].source=OTHER_SOURCE;
 		}
@@ -927,6 +935,150 @@ void file_placement() {
 	}
 }
 
+/**
+* Places the apps in a list as defined in #appmix_file.
+* The format of this file is:
+* tracefile_name, num_nodes, node_list
+* separated by: <'_'>
+*/
+void apx_placement(){
+    FILE *fp;
+    char *buffer[NUMNODES*6];
+    char *name;
+    long *nodelist;
+    long n_nodes;
+    char *sep = "_";
+    int id_t=0;
+    int i;
+    if((fp = fopen(mpa_file, "r"))==NULL) {
+        panic("appmix: appmix_file not found!");
+    }
+    while(fgets(buffer,NUMNODES*8, fp)!=NULL){
+        if(buffer[0]!='\n' && buffer[0] != '#'){
+            if(buffer[strlen(buffer)-1] =='\n')
+                buffer[strlen(buffer)-1] = '\0';
+            name = strtok(buffer,sep);
+            n_nodes = atol(strtok(NULL, sep));
+            nodelist = malloc(n_nodes*sizeof(long));
+            for (i = 0; i <n_nodes ; ++i) {
+                nodelist[i] = atol(strtok(NULL, sep));
+            }
+            head = addapp(head, name, n_nodes, nodelist,id_t);
+            id_t++;
+        }
+    }
+}
+/**
+ * TODO
+ */
+void apx_traces(){
+    FILE *fd;
+    char buffer[512];
+    char *tok;
+    char sep[]=" \t";
+    event ev;
+    appnode actual;
+    actual=head;
+    char *tracefile;
+    long source, dest;
+    long i;
+    int j;
+    while(actual != NULL){
+        if(actual->running==0){
+            if(check_node_disp(actual->node_list, actual->nodes)==1){
+                return;
+            }
+            actual->running=1;
+            tracefile = actual->filename;
+            if((fd = fopen(tracefile, "r")) == NULL) {
+                char message[100];
+                sprintf(message, "Trace file not found in current directory - %s", tracefile);
+                panic(message);
+            }
+            for(j=0;j<actual->nodes;j++){
+                network[actual->node_list[j]].source=OTHER_SOURCE;
+                network[actual->node_list[j]].appid=actual->id;
+            }
+            //load_app
+            while(fgets(buffer, 512, fd) != NULL) {
+                if(buffer[0] != '\n' && buffer[0] != '#') {
+                    if(buffer[strlen(buffer) - 1] == '\n')
+                        buffer[strlen(buffer) - 1] = '\0';
+
+                    tok = strtok( buffer, sep);
+
+                    if (strcmp(tok, "s")==0 || strcmp(tok, "r")==0) { // Communication.
+                        if (strcmp(tok, "s")==0){
+                            ev.type=SENDING;
+                            ev.app_id=actual->id;
+                            tok=strtok(NULL, sep); // from
+                            source=atol(tok); // Sendet (Node to add event)
+                            tok=strtok(NULL, sep);
+                            dest=atol(tok); // event's PID: destination when we are sending
+                        }
+                        else{ // if (strcmp(tok, "r")==0)
+                            ev.type=RECEPTION;
+                            tok=strtok(NULL, sep); // from
+                            dest=atol(tok); // event's PID: origin of the message
+                            tok=strtok(NULL, sep);
+                            source=atol(tok); // Destination of the message (local node)
+                        }
+                        if (source!=dest) {
+                            // Valid event
+                            tok=strtok(NULL, sep);
+                            ev.task=atol(tok); // Type of message (tag)
+                            tok=strtok(NULL, sep);
+                            ev.length=atol(tok); // Length of message
+                            ev.count=0; // Packets sent or received
+                            if (ev.length == 0)
+                                ev.length=1;
+                            ev.length = (long)ceil ( (double)ev.length/(pkt_len*phit_len));
+                            i = actual->node_list[source]; //Node to add event
+                            ev.pid = actual->node_list[dest]; //Destination node
+                            actual->ini_clock = sim_clock;
+                            ins_event(&network[i].events, ev);
+                            network[i].appid = actual->id;
+                        }
+                    }
+                    else if (strcmp(tok, "c")==0){ // Computation.
+                        ev.type=COMPUTATION;
+                        tok=strtok(NULL, sep);
+                        source=atol(tok); // nodeId.
+                        tok=strtok(NULL, sep);
+                        switch (cpu_units){
+                            case UNIT_CYCLES:
+                                ev.length=((CLOCK_TYPE)atol(tok));
+                                break;
+                            case UNIT_MILLISECONDS:
+                                ev.length=(CLOCK_TYPE)(((atol(tok))*1000*link_bw)/(8*phit_len));
+                                break;
+                            case UNIT_MICROSECONDS:
+                                ev.length=(CLOCK_TYPE)(((atol(tok))*link_bw)/(8*phit_len));
+                                break;
+                            case UNIT_NANOSECONDS:
+                                ev.length=(CLOCK_TYPE)(((atol(tok))*link_bw)/(8000*phit_len));
+                                break;
+                            default:
+                                panic("Unsupported CPU units");
+
+                        }
+                        if (ev.length>0){
+                            ev.count=0; // Elapsed time.
+                            ev.pid = actual->node_list[source];
+                            ins_event(&network[ev.pid].events,ev);
+                            network[ev.pid].source=OTHER_SOURCE;
+                            network[ev.pid].appid=actual->id;
+                        }
+                    }
+                }
+            }
+            fclose(fd);
+        }
+        actual=actual->next;
+    }
+
+}
+
 #if (SKIP_CPU_BURSTS==1)
 CLOCK_TYPE skipped_cycles=0, skipped_periods=0;
 
@@ -1040,7 +1192,7 @@ void run_network_trc() {
 
 	do {
 #if (CHECK_TRC_DEADLOCK>0)
-		if (deadlocked_trc()){
+		if (deadlocked_trc() && pattern!=MPA){
             if(deadlocked_period++>CHECK_TRC_DEADLOCK){
                 report_receiving_tasks();
                 abort_sim("All the tasks have been waiting for each other for more than the threshold (CHECK_TRC_DEADLOCK). The application is probably deadlocked");
@@ -1052,10 +1204,15 @@ void run_network_trc() {
 		skip_if_cpu_activity_only();
 #endif /* SKIP_CPU_BURSTS */
 		data_movement(B_TRUE);
+        /*
+         * AQUI CHECK DE TODAS LAS APPS poner INDEPENDENT_SOURCE en todas los nodos liberados
+         * Luego llamar a print partials
+         */
 		sim_clock++;
 
 		if ((pheaders > 0) && (sim_clock % pinterval == 0)) {
-			print_partials();
+            if(pattern!=MPA)
+			    print_partials();
 		}
 		if ((sim_clock%update_period) == 0) {
 			global_q_u = global_q_u_current;
@@ -1069,7 +1226,8 @@ void run_network_trc() {
 			}
 		}
 	} while (go_on && !interrupted  && !aborted);
-	print_partials();
+    if(pattern!=MPA)
+	    print_partials();
 	save_batch_results();
 	reset_stats();
 }

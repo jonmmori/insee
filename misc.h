@@ -152,7 +152,8 @@ typedef enum traffic_pattern_t {
 	SHIFT,		// Apply a given stride to the source node to calculate the destination node.
 	BISECT,	// Pair the nodes (randomly) and make each node in a pair to communicate with each other.
 	GROUPSHIFT,	// Random traffic among groups of a given size sending to a given group stride.
-	ADV		// Apply a given stride to the source node to calculate the destination node.
+	ADV,		// Apply a given stride to the source node to calculate the destination node.
+    MPA  //Load several applications specifying the required nodes and trace of each app.
 } traffic_pattern_t;
 
 /**
@@ -249,14 +250,14 @@ typedef enum inj_mode_t {
 * Definition of task placement types for trace driven.
 */
 typedef enum placement_t{
-	CONSECUTIVE_PLACE, SHUFFLE_PLACE, RANDOM_PLACE, SHIFT_PLACE, ROW_PLACE, COLUMN_PLACE, QUADRANT_PLACE, ICUBE_PLACE, DIAGONAL_PLACE, CIRC_PLACE, FILE_PLACE
+	CONSECUTIVE_PLACE, SHUFFLE_PLACE, RANDOM_PLACE, SHIFT_PLACE, ROW_PLACE, COLUMN_PLACE, QUADRANT_PLACE, ICUBE_PLACE, DIAGONAL_PLACE, CIRC_PLACE, FILE_PLACE, MPA_PLACE
 } placement_t;
 
 /**
 * Definition of the source type for trace driven.
 */
 typedef enum source_t{
-	NO_SOURCE, INDEPENDENT_SOURCE, OTHER_SOURCE
+	NO_SOURCE, INDEPENDENT_SOURCE, OTHER_SOURCE, FINISHED
 } source_t;
 
 // Some declarations.

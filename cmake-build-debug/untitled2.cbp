@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="untitled2"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/jonmorinigo/Desktop/insee_original/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/jonmorinigo/Desktop/insee_original/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/jonmorinigo/Desktop/insee_original/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/jonmorinigo/Desktop/insee_original/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/jonmorinigo/Desktop/insee_original/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="insee_n_dim_sim">
+				<Option output="/Users/jonmorinigo/Desktop/insee_original/cmake-build-debug/insee_n_dim_sim" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/jonmorinigo/Desktop/insee_original/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/jonmorinigo/Desktop/insee_original/cmake-build-debug/Makefile&quot;  VERBOSE=1 insee_n_dim_sim"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/jonmorinigo/Desktop/insee_original/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/jonmorinigo/Desktop/insee_original/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/jonmorinigo/Desktop/insee_original/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="insee_n_dim_sim/fast">
+				<Option output="/Users/jonmorinigo/Desktop/insee_original/cmake-build-debug/insee_n_dim_sim" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/jonmorinigo/Desktop/insee_original/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/12.0.5/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/jonmorinigo/Desktop/insee_original/cmake-build-debug/Makefile&quot;  VERBOSE=1 insee_n_dim_sim/fast"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/jonmorinigo/Desktop/insee_original/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/jonmorinigo/Desktop/insee_original/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/jonmorinigo/Desktop/insee_original/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/jonmorinigo/Desktop/insee_original/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/jonmorinigo/Desktop/insee_original/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/jonmorinigo/Desktop/insee_original/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/jonmorinigo/Desktop/insee_original/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/jonmorinigo/Desktop/insee_original/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/jonmorinigo/Desktop/insee_original/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j8 -f &quot;/Users/jonmorinigo/Desktop/insee_original/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j8 -f &quot;/Users/jonmorinigo/Desktop/insee_original/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j8 -f &quot;/Users/jonmorinigo/Desktop/insee_original/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j8 -f &quot;/Users/jonmorinigo/Desktop/insee_original/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/arbitrate.c">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/batch.c">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/batch.h">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/cam.c">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/cam.h">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/circ_pk.c">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/circulant.c">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/data_generation.c">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/dragonfly.c">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/dtt.c">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/event.c">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/event.h">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/exd.c">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/exd.h">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/fattree.c">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/get_conf.c">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/graph.c">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/graph.h">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/icube.c">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/init_functions.c">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/ksp_routing.c">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/ksp_routing.h">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/list.c">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/list.h">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/literal.c">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/literal.h">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/main.c">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/mapping.c">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/mapping.h">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/midimew.c">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/misc.c">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/misc.h">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/mpa.c">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/pattern.c">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/pattern.h">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/perform_mov.c">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/pkt_mem.c">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/pkt_mem.h">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/print_results.c">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/queue.c">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/queue.h">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/queue_inj.c">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/request_ports.c">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/router.c">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/router.h">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/scheduling.c">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/spanning_tree.c">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/spanning_tree.h">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/spinnaker.c">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/stats.c">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/torus.c">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/trace.c">
+			<Option target="insee_n_dim_sim"/>
+		</Unit>
+		<Unit filename="/Users/jonmorinigo/Desktop/insee_original/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

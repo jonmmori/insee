@@ -33,47 +33,37 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 * @return The address of the neighbor in that direction.
 */
 long torus_neighbor (long ad, dim wd, way ww) {
-	long ox, oy, oz;
-	long nx, ny, nz;
-	long w;
+    int i;
+    long n;
+    long w;
 
-	nx = ny = nz = 0;
-	if (ww == UP)
-		w = 1;
-	else
-		w = -1;
+    if (ww == UP)
+        w = 1;
+    else
+        w = -1;
+    n = (network[ad].rcoord[wd]+w)%nodes_per_dim[wd];
+    if (n < 0) n += nodes_per_dim[wd];
 
-	ox=network[ad].rcoord[D_X];
-	oy=network[ad].rcoord[D_Y];
-	oz=network[ad].rcoord[D_Z];
+    long address_n = 0;
+    long num_nodes = 1;
 
-	switch (wd) {
-		case D_X:
-			nx = (ox+w)%nodes_x;
-			if (nx < 0)
-				nx += nodes_x;
-			ny = oy;
-			nz = oz;
-			break;
-		case D_Y:
-			ny = (oy+w)%nodes_y;
-			if (ny < 0)
-				ny += nodes_y;
-			nx = ox;
-			nz = oz;
-			break;
-		case D_Z:
-			nz = (oz+w)%nodes_z;
-			if (nz < 0)
-				nz += nodes_z;
-			nx = ox;
-			ny = oy;
-			break;
-		case INJ:
-		case CON:
-		default:;
-	}
-	return address(nx, ny, nz);
+    for (i = 0; i < ndim; ++i) {
+        if (i==wd) {
+            if(i==0){
+                address_n = n;
+            }else{
+                num_nodes *= nodes_per_dim[i-1];
+                address_n += num_nodes*n;
+            }
+        }else if(i==0){
+            address_n = network[ad].rcoord[i];
+        }else{
+            num_nodes *= nodes_per_dim[i-1];
+            address_n+=num_nodes*network[ad].rcoord[i];
+        }
+    }
+
+    return address_n;
 }
 
 /**
@@ -84,36 +74,20 @@ long torus_neighbor (long ad, dim wd, way ww) {
 * @return The routing record needed to go from source to destination.
 */
 routing_r mesh_rr (long source, long destination) {
-	long sx, sy, sz, dx, dy, dz;
-	routing_r res;
+    int i;
+    routing_r res;
+    res.rr = alloc(ndim*sizeof(long));
 
-	res.rr=alloc(ndim*sizeof(long));
+    if (source == destination)
+        panic("Self-sent packet");
 
-	if (source == destination)
-		panic("Self-sent packet");
+    res.size = 0;
+    for (i = 0; i < ndim; i++) {
+        res.rr[i] = network[destination].rcoord[i]-network[source].rcoord[i];
+        res.size += abs(res.rr[i]);
+    }
 
-	sx=network[source].rcoord[D_X];
-	sy=network[source].rcoord[D_Y];
-	sz=network[source].rcoord[D_Z];
-
-	dx=network[destination].rcoord[D_X];
-	dy=network[destination].rcoord[D_Y];
-	dz=network[destination].rcoord[D_Z];
-
-	res.rr[D_X] = dx-sx;
-	res.size = abs(res.rr[D_X]);
-
-	if (ndim >= 2){
-		res.rr[D_Y] = dy-sy;
-		res.size += abs(res.rr[D_Y]);
-	}
-
-	if (ndim == 3){
-		res.rr[D_Z] = dz-sz;
-		res.size += abs(res.rr[D_Z]);
-	}
-
-	return res;
+    return res;
 }
 
 /**
@@ -124,56 +98,29 @@ routing_r mesh_rr (long source, long destination) {
 * @return The routing record needed to go from source to destination.
 */
 routing_r torus_rr (long source, long destination) {
-	long sx, sy, sz, dx, dy, dz;
-	routing_r res;
+    routing_r res;
+    int i;
+    res.rr = alloc(ndim*sizeof(long));
 
-	res.rr=alloc(ndim*sizeof(long));
+    if(source == destination)
+        panic("Self-sent packet");
+    res.size = 0;
+    for (i = 0; i < ndim; i++) {
 
-	if (source == destination)
-		panic("Self-sent packet");
+        res.rr[i] = (network[destination].rcoord[i]-network[source].rcoord[i])%nodes_per_dim[i];
+        if (res.rr[i] < 0)
+            res.rr[i] += nodes_per_dim[i];
+        if (res.rr[i] > nodes_per_dim[i]/2)
+            res.rr[i] = (nodes_per_dim[i]-res.rr[i])*(-1);
+        if ((double)res.rr[i] == nodes_per_dim[i]/2.0)
+            if (rand() >= (RAND_MAX/2))
+                res.rr[i] = (nodes_per_dim[i]-res.rr[i])*(-1);
+        res.size += abs(res.rr[i]);
 
-	sx=network[source].rcoord[D_X];
-	sy=network[source].rcoord[D_Y];
-	sz=network[source].rcoord[D_Z];
+    }
+    return res;
 
-	dx=network[destination].rcoord[D_X];
-	dy=network[destination].rcoord[D_Y];
-	dz=network[destination].rcoord[D_Z];
 
-	res.rr[D_X] = (dx-sx)%nodes_x;
-	if (res.rr[D_X] < 0)
-		res.rr[D_X] += nodes_x;
-	if (res.rr[D_X] > nodes_x/2)
-		res.rr[D_X] = (nodes_x-res.rr[D_X])*(-1);
-	if ((double)res.rr[D_X] == nodes_x/2.0)
-		if (rand() >= (RAND_MAX/2))
-			res.rr[D_X] = (nodes_x-res.rr[D_X])*(-1);
-	res.size = abs(res.rr[D_X]);
-
-	if (ndim >= 2) {
-		res.rr[D_Y] = (dy-sy)%nodes_y;
-		if (res.rr[D_Y] < 0)
-			res.rr[D_Y] += nodes_y;
-		if (res.rr[D_Y] > nodes_y/2)
-			res.rr[D_Y] = (nodes_y-res.rr[D_Y])*(-1);
-		if ((double)res.rr[D_Y] == nodes_y/2.0)
-			if (rand() >= (RAND_MAX/2))
-				res.rr[D_Y] = (nodes_y-res.rr[D_Y])*(-1);
-		res.size += abs(res.rr[D_Y]);
-	}
-
-	if (ndim == 3) {
-		res.rr[D_Z] = (dz-sz)%nodes_z;
-		if (res.rr[D_Z] < 0)
-			res.rr[D_Z] += nodes_z;
-		if (res.rr[D_Z] > nodes_z/2)
-			res.rr[D_Z] = (nodes_z-res.rr[D_Z])*(-1);
-		if ((double)res.rr[D_Z] == nodes_z/2.0)
-			if (rand() >= (RAND_MAX/2))
-				res.rr[D_Z] = (nodes_z-res.rr[D_Z])*(-1);
-		res.size += abs(res.rr[D_Z]);
-	}
-	return res;
 }
 
 /**

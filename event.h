@@ -44,6 +44,7 @@ typedef enum event_t {
 typedef struct event {
 	event_t type;	///< Type of the event (Reception / Sent / Computation).
 	long pid;		///< The other node (processor id).
+	long app_id;    ///< Used in appmix for app identification
 	long task;		///< An id for distinguish messages.
 	CLOCK_TYPE length;	///< Length of the message in packets. Number of cycles in computation.
 	CLOCK_TYPE count;		///< The number of packets sent/arrived. Number of elapsed cycles when running.

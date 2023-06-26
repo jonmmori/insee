@@ -54,6 +54,7 @@ extern long n_ports;
 
 extern long r_seed;
 extern long nodes_x, nodes_y, nodes_z;
+extern long *nodes_per_dim;
 extern long binj_cap;
 extern long ninj;
 extern router  * network;
@@ -89,6 +90,8 @@ extern long intra_ports; ///<  Total number of ports in one group connecting to 
 extern long stride; ///< stride to be used with the shift and groupshift patterns
 extern long group_size; ///< group size to be used with the groupshift pattern
 
+extern char *mpa_file; ///< file name used to execute the mpa traffic
+
 extern char topology_filename[128];
 
 extern long faults;
@@ -109,6 +112,7 @@ extern long faults;
 extern CLOCK_TYPE sim_clock;
 extern CLOCK_TYPE last_reset_time;
 extern long bub_adap[2], bub_x, bub_y, bub_z;
+extern long *bub;
 extern topo_t topo;
 extern long plevel;
 extern long pheaders;
@@ -343,7 +347,7 @@ void router_init(void);
 void router_finish(void);
 void init_network(void);
 void finish_network(void);
-void coords (long ad, long *cx, long *cy, long *cz);
+void coords (long ad, long *coord);
 void coords_icube (long ad, long *cx, long *cy, long *cz);
 
 long torus_neighbor(long ad, dim wd, way ww);
@@ -432,6 +436,26 @@ extern long k_inv;
 /* In dtt.c */
 extern long sk_xy, sk_xz, sk_yx, sk_yz, sk_zx, sk_zy; // Skews for twisted torus
 
+/* In mpa.c */
+struct AppLinkedList{
+    char * filename;
+    long running;
+    long id;
+    long nodes;
+    CLOCK_TYPE ini_clock;
+    CLOCK_TYPE end_clock;
+    long * node_list;
+    long * node_bmp; //node bitmap
+    struct appnode *next;
+};typedef struct AppLinkedList *appnode;
+extern appnode head;
+appnode addapp(appnode head, char *name, long nodes, long *nodelist, long id);
+int check_node_disp(long *nodelist, long nodes);
+void set_bitmap(long node, long id);
+int check_finished_app(long id);
+void d_app(long id);
+
+
 /* In queue.c */
 void init_queue (queue *q);
 
@@ -446,6 +470,7 @@ unsigned long get_pkt();
  void read_trace();
  void trace_finish();
  void run_network_trc();
+ void apx_traces();
 
 /* In event.c */
  void init_event (event_q *q);

@@ -45,7 +45,7 @@ void init_functions (void) {
 
     if (shotmode) run_network = run_network_shotmode;
 #if (TRACE_SUPPORT != 0)
-    else if (pattern == TRACE) run_network = run_network_trc;
+    else if (pattern == TRACE || pattern == MPA) run_network = run_network_trc;
 #endif
     else run_network = run_network_batch;
 

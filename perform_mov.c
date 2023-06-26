@@ -400,7 +400,7 @@ void phit_away(long i, port_type s_p, phit ph) {
 #endif /* BIMODAL */
 
 #if (TRACE_SUPPORT != 0)
-		if (pattern==TRACE){// Adds Event in an ocurred event's list
+		if (pattern==TRACE || pattern==MPA){// Adds Event in an ocurred event's list
 			event e;
 			e.type=RECEPTION;
 			e.pid=pkt_space[ph.packet].from;

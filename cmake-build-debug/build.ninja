@@ -1,0 +1,422 @@
+## This file contains all the build statements describing the
+# compilation DAG.
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# 
+# Which is the root file.
+# =============================================================================
+
+# =============================================================================
+# Project: untitled2
+# Configurations: Debug
+# =============================================================================
+
+#############################################
+# Minimal version of Ninja required by this file
+
+ninja_required_version = 1.5
+
+
+#############################################
+# Set configuration variable for custom commands.
+
+CONFIGURATION = Debug
+# =============================================================================
+# Include auxiliary files.
+
+
+#############################################
+# Include rules file.
+
+include CMakeFiles/rules.ninja
+
+# =============================================================================
+
+#############################################
+# Logical path to working directory; prefix for absolute paths.
+
+cmake_ninja_workdir = /Users/jonmorinigo/CLionProjects/insee_n_dim_sim/cmake-build-debug/
+# =============================================================================
+# Object build statements for EXECUTABLE target insee_n_dim_sim
+
+
+#############################################
+# Order-only phony target for insee_n_dim_sim
+
+build cmake_object_order_depends_target_insee_n_dim_sim: phony || CMakeFiles/insee_n_dim_sim.dir
+
+build CMakeFiles/insee_n_dim_sim.dir/arbitrate.c.o: C_COMPILER__insee_n_dim_sim_Debug /Users/jonmorinigo/CLionProjects/insee_n_dim_sim/arbitrate.c || cmake_object_order_depends_target_insee_n_dim_sim
+  DEP_FILE = CMakeFiles/insee_n_dim_sim.dir/arbitrate.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -fcolor-diagnostics -std=gnu90
+  OBJECT_DIR = CMakeFiles/insee_n_dim_sim.dir
+  OBJECT_FILE_DIR = CMakeFiles/insee_n_dim_sim.dir
+  TARGET_COMPILE_PDB = CMakeFiles/insee_n_dim_sim.dir/
+  TARGET_PDB = insee_n_dim_sim.pdb
+
+build CMakeFiles/insee_n_dim_sim.dir/batch.c.o: C_COMPILER__insee_n_dim_sim_Debug /Users/jonmorinigo/CLionProjects/insee_n_dim_sim/batch.c || cmake_object_order_depends_target_insee_n_dim_sim
+  DEP_FILE = CMakeFiles/insee_n_dim_sim.dir/batch.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -fcolor-diagnostics -std=gnu90
+  OBJECT_DIR = CMakeFiles/insee_n_dim_sim.dir
+  OBJECT_FILE_DIR = CMakeFiles/insee_n_dim_sim.dir
+  TARGET_COMPILE_PDB = CMakeFiles/insee_n_dim_sim.dir/
+  TARGET_PDB = insee_n_dim_sim.pdb
+
+build CMakeFiles/insee_n_dim_sim.dir/cam.c.o: C_COMPILER__insee_n_dim_sim_Debug /Users/jonmorinigo/CLionProjects/insee_n_dim_sim/cam.c || cmake_object_order_depends_target_insee_n_dim_sim
+  DEP_FILE = CMakeFiles/insee_n_dim_sim.dir/cam.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -fcolor-diagnostics -std=gnu90
+  OBJECT_DIR = CMakeFiles/insee_n_dim_sim.dir
+  OBJECT_FILE_DIR = CMakeFiles/insee_n_dim_sim.dir
+  TARGET_COMPILE_PDB = CMakeFiles/insee_n_dim_sim.dir/
+  TARGET_PDB = insee_n_dim_sim.pdb
+
+build CMakeFiles/insee_n_dim_sim.dir/circ_pk.c.o: C_COMPILER__insee_n_dim_sim_Debug /Users/jonmorinigo/CLionProjects/insee_n_dim_sim/circ_pk.c || cmake_object_order_depends_target_insee_n_dim_sim
+  DEP_FILE = CMakeFiles/insee_n_dim_sim.dir/circ_pk.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -fcolor-diagnostics -std=gnu90
+  OBJECT_DIR = CMakeFiles/insee_n_dim_sim.dir
+  OBJECT_FILE_DIR = CMakeFiles/insee_n_dim_sim.dir
+  TARGET_COMPILE_PDB = CMakeFiles/insee_n_dim_sim.dir/
+  TARGET_PDB = insee_n_dim_sim.pdb
+
+build CMakeFiles/insee_n_dim_sim.dir/circulant.c.o: C_COMPILER__insee_n_dim_sim_Debug /Users/jonmorinigo/CLionProjects/insee_n_dim_sim/circulant.c || cmake_object_order_depends_target_insee_n_dim_sim
+  DEP_FILE = CMakeFiles/insee_n_dim_sim.dir/circulant.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -fcolor-diagnostics -std=gnu90
+  OBJECT_DIR = CMakeFiles/insee_n_dim_sim.dir
+  OBJECT_FILE_DIR = CMakeFiles/insee_n_dim_sim.dir
+  TARGET_COMPILE_PDB = CMakeFiles/insee_n_dim_sim.dir/
+  TARGET_PDB = insee_n_dim_sim.pdb
+
+build CMakeFiles/insee_n_dim_sim.dir/data_generation.c.o: C_COMPILER__insee_n_dim_sim_Debug /Users/jonmorinigo/CLionProjects/insee_n_dim_sim/data_generation.c || cmake_object_order_depends_target_insee_n_dim_sim
+  DEP_FILE = CMakeFiles/insee_n_dim_sim.dir/data_generation.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -fcolor-diagnostics -std=gnu90
+  OBJECT_DIR = CMakeFiles/insee_n_dim_sim.dir
+  OBJECT_FILE_DIR = CMakeFiles/insee_n_dim_sim.dir
+  TARGET_COMPILE_PDB = CMakeFiles/insee_n_dim_sim.dir/
+  TARGET_PDB = insee_n_dim_sim.pdb
+
+build CMakeFiles/insee_n_dim_sim.dir/dragonfly.c.o: C_COMPILER__insee_n_dim_sim_Debug /Users/jonmorinigo/CLionProjects/insee_n_dim_sim/dragonfly.c || cmake_object_order_depends_target_insee_n_dim_sim
+  DEP_FILE = CMakeFiles/insee_n_dim_sim.dir/dragonfly.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -fcolor-diagnostics -std=gnu90
+  OBJECT_DIR = CMakeFiles/insee_n_dim_sim.dir
+  OBJECT_FILE_DIR = CMakeFiles/insee_n_dim_sim.dir
+  TARGET_COMPILE_PDB = CMakeFiles/insee_n_dim_sim.dir/
+  TARGET_PDB = insee_n_dim_sim.pdb
+
+build CMakeFiles/insee_n_dim_sim.dir/dtt.c.o: C_COMPILER__insee_n_dim_sim_Debug /Users/jonmorinigo/CLionProjects/insee_n_dim_sim/dtt.c || cmake_object_order_depends_target_insee_n_dim_sim
+  DEP_FILE = CMakeFiles/insee_n_dim_sim.dir/dtt.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -fcolor-diagnostics -std=gnu90
+  OBJECT_DIR = CMakeFiles/insee_n_dim_sim.dir
+  OBJECT_FILE_DIR = CMakeFiles/insee_n_dim_sim.dir
+  TARGET_COMPILE_PDB = CMakeFiles/insee_n_dim_sim.dir/
+  TARGET_PDB = insee_n_dim_sim.pdb
+
+build CMakeFiles/insee_n_dim_sim.dir/event.c.o: C_COMPILER__insee_n_dim_sim_Debug /Users/jonmorinigo/CLionProjects/insee_n_dim_sim/event.c || cmake_object_order_depends_target_insee_n_dim_sim
+  DEP_FILE = CMakeFiles/insee_n_dim_sim.dir/event.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -fcolor-diagnostics -std=gnu90
+  OBJECT_DIR = CMakeFiles/insee_n_dim_sim.dir
+  OBJECT_FILE_DIR = CMakeFiles/insee_n_dim_sim.dir
+  TARGET_COMPILE_PDB = CMakeFiles/insee_n_dim_sim.dir/
+  TARGET_PDB = insee_n_dim_sim.pdb
+
+build CMakeFiles/insee_n_dim_sim.dir/exd.c.o: C_COMPILER__insee_n_dim_sim_Debug /Users/jonmorinigo/CLionProjects/insee_n_dim_sim/exd.c || cmake_object_order_depends_target_insee_n_dim_sim
+  DEP_FILE = CMakeFiles/insee_n_dim_sim.dir/exd.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -fcolor-diagnostics -std=gnu90
+  OBJECT_DIR = CMakeFiles/insee_n_dim_sim.dir
+  OBJECT_FILE_DIR = CMakeFiles/insee_n_dim_sim.dir
+  TARGET_COMPILE_PDB = CMakeFiles/insee_n_dim_sim.dir/
+  TARGET_PDB = insee_n_dim_sim.pdb
+
+build CMakeFiles/insee_n_dim_sim.dir/fattree.c.o: C_COMPILER__insee_n_dim_sim_Debug /Users/jonmorinigo/CLionProjects/insee_n_dim_sim/fattree.c || cmake_object_order_depends_target_insee_n_dim_sim
+  DEP_FILE = CMakeFiles/insee_n_dim_sim.dir/fattree.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -fcolor-diagnostics -std=gnu90
+  OBJECT_DIR = CMakeFiles/insee_n_dim_sim.dir
+  OBJECT_FILE_DIR = CMakeFiles/insee_n_dim_sim.dir
+  TARGET_COMPILE_PDB = CMakeFiles/insee_n_dim_sim.dir/
+  TARGET_PDB = insee_n_dim_sim.pdb
+
+build CMakeFiles/insee_n_dim_sim.dir/get_conf.c.o: C_COMPILER__insee_n_dim_sim_Debug /Users/jonmorinigo/CLionProjects/insee_n_dim_sim/get_conf.c || cmake_object_order_depends_target_insee_n_dim_sim
+  DEP_FILE = CMakeFiles/insee_n_dim_sim.dir/get_conf.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -fcolor-diagnostics -std=gnu90
+  OBJECT_DIR = CMakeFiles/insee_n_dim_sim.dir
+  OBJECT_FILE_DIR = CMakeFiles/insee_n_dim_sim.dir
+  TARGET_COMPILE_PDB = CMakeFiles/insee_n_dim_sim.dir/
+  TARGET_PDB = insee_n_dim_sim.pdb
+
+build CMakeFiles/insee_n_dim_sim.dir/graph.c.o: C_COMPILER__insee_n_dim_sim_Debug /Users/jonmorinigo/CLionProjects/insee_n_dim_sim/graph.c || cmake_object_order_depends_target_insee_n_dim_sim
+  DEP_FILE = CMakeFiles/insee_n_dim_sim.dir/graph.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -fcolor-diagnostics -std=gnu90
+  OBJECT_DIR = CMakeFiles/insee_n_dim_sim.dir
+  OBJECT_FILE_DIR = CMakeFiles/insee_n_dim_sim.dir
+  TARGET_COMPILE_PDB = CMakeFiles/insee_n_dim_sim.dir/
+  TARGET_PDB = insee_n_dim_sim.pdb
+
+build CMakeFiles/insee_n_dim_sim.dir/icube.c.o: C_COMPILER__insee_n_dim_sim_Debug /Users/jonmorinigo/CLionProjects/insee_n_dim_sim/icube.c || cmake_object_order_depends_target_insee_n_dim_sim
+  DEP_FILE = CMakeFiles/insee_n_dim_sim.dir/icube.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -fcolor-diagnostics -std=gnu90
+  OBJECT_DIR = CMakeFiles/insee_n_dim_sim.dir
+  OBJECT_FILE_DIR = CMakeFiles/insee_n_dim_sim.dir
+  TARGET_COMPILE_PDB = CMakeFiles/insee_n_dim_sim.dir/
+  TARGET_PDB = insee_n_dim_sim.pdb
+
+build CMakeFiles/insee_n_dim_sim.dir/init_functions.c.o: C_COMPILER__insee_n_dim_sim_Debug /Users/jonmorinigo/CLionProjects/insee_n_dim_sim/init_functions.c || cmake_object_order_depends_target_insee_n_dim_sim
+  DEP_FILE = CMakeFiles/insee_n_dim_sim.dir/init_functions.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -fcolor-diagnostics -std=gnu90
+  OBJECT_DIR = CMakeFiles/insee_n_dim_sim.dir
+  OBJECT_FILE_DIR = CMakeFiles/insee_n_dim_sim.dir
+  TARGET_COMPILE_PDB = CMakeFiles/insee_n_dim_sim.dir/
+  TARGET_PDB = insee_n_dim_sim.pdb
+
+build CMakeFiles/insee_n_dim_sim.dir/ksp_routing.c.o: C_COMPILER__insee_n_dim_sim_Debug /Users/jonmorinigo/CLionProjects/insee_n_dim_sim/ksp_routing.c || cmake_object_order_depends_target_insee_n_dim_sim
+  DEP_FILE = CMakeFiles/insee_n_dim_sim.dir/ksp_routing.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -fcolor-diagnostics -std=gnu90
+  OBJECT_DIR = CMakeFiles/insee_n_dim_sim.dir
+  OBJECT_FILE_DIR = CMakeFiles/insee_n_dim_sim.dir
+  TARGET_COMPILE_PDB = CMakeFiles/insee_n_dim_sim.dir/
+  TARGET_PDB = insee_n_dim_sim.pdb
+
+build CMakeFiles/insee_n_dim_sim.dir/list.c.o: C_COMPILER__insee_n_dim_sim_Debug /Users/jonmorinigo/CLionProjects/insee_n_dim_sim/list.c || cmake_object_order_depends_target_insee_n_dim_sim
+  DEP_FILE = CMakeFiles/insee_n_dim_sim.dir/list.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -fcolor-diagnostics -std=gnu90
+  OBJECT_DIR = CMakeFiles/insee_n_dim_sim.dir
+  OBJECT_FILE_DIR = CMakeFiles/insee_n_dim_sim.dir
+  TARGET_COMPILE_PDB = CMakeFiles/insee_n_dim_sim.dir/
+  TARGET_PDB = insee_n_dim_sim.pdb
+
+build CMakeFiles/insee_n_dim_sim.dir/literal.c.o: C_COMPILER__insee_n_dim_sim_Debug /Users/jonmorinigo/CLionProjects/insee_n_dim_sim/literal.c || cmake_object_order_depends_target_insee_n_dim_sim
+  DEP_FILE = CMakeFiles/insee_n_dim_sim.dir/literal.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -fcolor-diagnostics -std=gnu90
+  OBJECT_DIR = CMakeFiles/insee_n_dim_sim.dir
+  OBJECT_FILE_DIR = CMakeFiles/insee_n_dim_sim.dir
+  TARGET_COMPILE_PDB = CMakeFiles/insee_n_dim_sim.dir/
+  TARGET_PDB = insee_n_dim_sim.pdb
+
+build CMakeFiles/insee_n_dim_sim.dir/main.c.o: C_COMPILER__insee_n_dim_sim_Debug /Users/jonmorinigo/CLionProjects/insee_n_dim_sim/main.c || cmake_object_order_depends_target_insee_n_dim_sim
+  DEP_FILE = CMakeFiles/insee_n_dim_sim.dir/main.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -fcolor-diagnostics -std=gnu90
+  OBJECT_DIR = CMakeFiles/insee_n_dim_sim.dir
+  OBJECT_FILE_DIR = CMakeFiles/insee_n_dim_sim.dir
+  TARGET_COMPILE_PDB = CMakeFiles/insee_n_dim_sim.dir/
+  TARGET_PDB = insee_n_dim_sim.pdb
+
+build CMakeFiles/insee_n_dim_sim.dir/mapping.c.o: C_COMPILER__insee_n_dim_sim_Debug /Users/jonmorinigo/CLionProjects/insee_n_dim_sim/mapping.c || cmake_object_order_depends_target_insee_n_dim_sim
+  DEP_FILE = CMakeFiles/insee_n_dim_sim.dir/mapping.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -fcolor-diagnostics -std=gnu90
+  OBJECT_DIR = CMakeFiles/insee_n_dim_sim.dir
+  OBJECT_FILE_DIR = CMakeFiles/insee_n_dim_sim.dir
+  TARGET_COMPILE_PDB = CMakeFiles/insee_n_dim_sim.dir/
+  TARGET_PDB = insee_n_dim_sim.pdb
+
+build CMakeFiles/insee_n_dim_sim.dir/midimew.c.o: C_COMPILER__insee_n_dim_sim_Debug /Users/jonmorinigo/CLionProjects/insee_n_dim_sim/midimew.c || cmake_object_order_depends_target_insee_n_dim_sim
+  DEP_FILE = CMakeFiles/insee_n_dim_sim.dir/midimew.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -fcolor-diagnostics -std=gnu90
+  OBJECT_DIR = CMakeFiles/insee_n_dim_sim.dir
+  OBJECT_FILE_DIR = CMakeFiles/insee_n_dim_sim.dir
+  TARGET_COMPILE_PDB = CMakeFiles/insee_n_dim_sim.dir/
+  TARGET_PDB = insee_n_dim_sim.pdb
+
+build CMakeFiles/insee_n_dim_sim.dir/misc.c.o: C_COMPILER__insee_n_dim_sim_Debug /Users/jonmorinigo/CLionProjects/insee_n_dim_sim/misc.c || cmake_object_order_depends_target_insee_n_dim_sim
+  DEP_FILE = CMakeFiles/insee_n_dim_sim.dir/misc.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -fcolor-diagnostics -std=gnu90
+  OBJECT_DIR = CMakeFiles/insee_n_dim_sim.dir
+  OBJECT_FILE_DIR = CMakeFiles/insee_n_dim_sim.dir
+  TARGET_COMPILE_PDB = CMakeFiles/insee_n_dim_sim.dir/
+  TARGET_PDB = insee_n_dim_sim.pdb
+
+build CMakeFiles/insee_n_dim_sim.dir/pattern.c.o: C_COMPILER__insee_n_dim_sim_Debug /Users/jonmorinigo/CLionProjects/insee_n_dim_sim/pattern.c || cmake_object_order_depends_target_insee_n_dim_sim
+  DEP_FILE = CMakeFiles/insee_n_dim_sim.dir/pattern.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -fcolor-diagnostics -std=gnu90
+  OBJECT_DIR = CMakeFiles/insee_n_dim_sim.dir
+  OBJECT_FILE_DIR = CMakeFiles/insee_n_dim_sim.dir
+  TARGET_COMPILE_PDB = CMakeFiles/insee_n_dim_sim.dir/
+  TARGET_PDB = insee_n_dim_sim.pdb
+
+build CMakeFiles/insee_n_dim_sim.dir/perform_mov.c.o: C_COMPILER__insee_n_dim_sim_Debug /Users/jonmorinigo/CLionProjects/insee_n_dim_sim/perform_mov.c || cmake_object_order_depends_target_insee_n_dim_sim
+  DEP_FILE = CMakeFiles/insee_n_dim_sim.dir/perform_mov.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -fcolor-diagnostics -std=gnu90
+  OBJECT_DIR = CMakeFiles/insee_n_dim_sim.dir
+  OBJECT_FILE_DIR = CMakeFiles/insee_n_dim_sim.dir
+  TARGET_COMPILE_PDB = CMakeFiles/insee_n_dim_sim.dir/
+  TARGET_PDB = insee_n_dim_sim.pdb
+
+build CMakeFiles/insee_n_dim_sim.dir/pkt_mem.c.o: C_COMPILER__insee_n_dim_sim_Debug /Users/jonmorinigo/CLionProjects/insee_n_dim_sim/pkt_mem.c || cmake_object_order_depends_target_insee_n_dim_sim
+  DEP_FILE = CMakeFiles/insee_n_dim_sim.dir/pkt_mem.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -fcolor-diagnostics -std=gnu90
+  OBJECT_DIR = CMakeFiles/insee_n_dim_sim.dir
+  OBJECT_FILE_DIR = CMakeFiles/insee_n_dim_sim.dir
+  TARGET_COMPILE_PDB = CMakeFiles/insee_n_dim_sim.dir/
+  TARGET_PDB = insee_n_dim_sim.pdb
+
+build CMakeFiles/insee_n_dim_sim.dir/print_results.c.o: C_COMPILER__insee_n_dim_sim_Debug /Users/jonmorinigo/CLionProjects/insee_n_dim_sim/print_results.c || cmake_object_order_depends_target_insee_n_dim_sim
+  DEP_FILE = CMakeFiles/insee_n_dim_sim.dir/print_results.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -fcolor-diagnostics -std=gnu90
+  OBJECT_DIR = CMakeFiles/insee_n_dim_sim.dir
+  OBJECT_FILE_DIR = CMakeFiles/insee_n_dim_sim.dir
+  TARGET_COMPILE_PDB = CMakeFiles/insee_n_dim_sim.dir/
+  TARGET_PDB = insee_n_dim_sim.pdb
+
+build CMakeFiles/insee_n_dim_sim.dir/queue.c.o: C_COMPILER__insee_n_dim_sim_Debug /Users/jonmorinigo/CLionProjects/insee_n_dim_sim/queue.c || cmake_object_order_depends_target_insee_n_dim_sim
+  DEP_FILE = CMakeFiles/insee_n_dim_sim.dir/queue.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -fcolor-diagnostics -std=gnu90
+  OBJECT_DIR = CMakeFiles/insee_n_dim_sim.dir
+  OBJECT_FILE_DIR = CMakeFiles/insee_n_dim_sim.dir
+  TARGET_COMPILE_PDB = CMakeFiles/insee_n_dim_sim.dir/
+  TARGET_PDB = insee_n_dim_sim.pdb
+
+build CMakeFiles/insee_n_dim_sim.dir/queue_inj.c.o: C_COMPILER__insee_n_dim_sim_Debug /Users/jonmorinigo/CLionProjects/insee_n_dim_sim/queue_inj.c || cmake_object_order_depends_target_insee_n_dim_sim
+  DEP_FILE = CMakeFiles/insee_n_dim_sim.dir/queue_inj.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -fcolor-diagnostics -std=gnu90
+  OBJECT_DIR = CMakeFiles/insee_n_dim_sim.dir
+  OBJECT_FILE_DIR = CMakeFiles/insee_n_dim_sim.dir
+  TARGET_COMPILE_PDB = CMakeFiles/insee_n_dim_sim.dir/
+  TARGET_PDB = insee_n_dim_sim.pdb
+
+build CMakeFiles/insee_n_dim_sim.dir/request_ports.c.o: C_COMPILER__insee_n_dim_sim_Debug /Users/jonmorinigo/CLionProjects/insee_n_dim_sim/request_ports.c || cmake_object_order_depends_target_insee_n_dim_sim
+  DEP_FILE = CMakeFiles/insee_n_dim_sim.dir/request_ports.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -fcolor-diagnostics -std=gnu90
+  OBJECT_DIR = CMakeFiles/insee_n_dim_sim.dir
+  OBJECT_FILE_DIR = CMakeFiles/insee_n_dim_sim.dir
+  TARGET_COMPILE_PDB = CMakeFiles/insee_n_dim_sim.dir/
+  TARGET_PDB = insee_n_dim_sim.pdb
+
+build CMakeFiles/insee_n_dim_sim.dir/router.c.o: C_COMPILER__insee_n_dim_sim_Debug /Users/jonmorinigo/CLionProjects/insee_n_dim_sim/router.c || cmake_object_order_depends_target_insee_n_dim_sim
+  DEP_FILE = CMakeFiles/insee_n_dim_sim.dir/router.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -fcolor-diagnostics -std=gnu90
+  OBJECT_DIR = CMakeFiles/insee_n_dim_sim.dir
+  OBJECT_FILE_DIR = CMakeFiles/insee_n_dim_sim.dir
+  TARGET_COMPILE_PDB = CMakeFiles/insee_n_dim_sim.dir/
+  TARGET_PDB = insee_n_dim_sim.pdb
+
+build CMakeFiles/insee_n_dim_sim.dir/scheduling.c.o: C_COMPILER__insee_n_dim_sim_Debug /Users/jonmorinigo/CLionProjects/insee_n_dim_sim/scheduling.c || cmake_object_order_depends_target_insee_n_dim_sim
+  DEP_FILE = CMakeFiles/insee_n_dim_sim.dir/scheduling.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -fcolor-diagnostics -std=gnu90
+  OBJECT_DIR = CMakeFiles/insee_n_dim_sim.dir
+  OBJECT_FILE_DIR = CMakeFiles/insee_n_dim_sim.dir
+  TARGET_COMPILE_PDB = CMakeFiles/insee_n_dim_sim.dir/
+  TARGET_PDB = insee_n_dim_sim.pdb
+
+build CMakeFiles/insee_n_dim_sim.dir/spanning_tree.c.o: C_COMPILER__insee_n_dim_sim_Debug /Users/jonmorinigo/CLionProjects/insee_n_dim_sim/spanning_tree.c || cmake_object_order_depends_target_insee_n_dim_sim
+  DEP_FILE = CMakeFiles/insee_n_dim_sim.dir/spanning_tree.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -fcolor-diagnostics -std=gnu90
+  OBJECT_DIR = CMakeFiles/insee_n_dim_sim.dir
+  OBJECT_FILE_DIR = CMakeFiles/insee_n_dim_sim.dir
+  TARGET_COMPILE_PDB = CMakeFiles/insee_n_dim_sim.dir/
+  TARGET_PDB = insee_n_dim_sim.pdb
+
+build CMakeFiles/insee_n_dim_sim.dir/spinnaker.c.o: C_COMPILER__insee_n_dim_sim_Debug /Users/jonmorinigo/CLionProjects/insee_n_dim_sim/spinnaker.c || cmake_object_order_depends_target_insee_n_dim_sim
+  DEP_FILE = CMakeFiles/insee_n_dim_sim.dir/spinnaker.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -fcolor-diagnostics -std=gnu90
+  OBJECT_DIR = CMakeFiles/insee_n_dim_sim.dir
+  OBJECT_FILE_DIR = CMakeFiles/insee_n_dim_sim.dir
+  TARGET_COMPILE_PDB = CMakeFiles/insee_n_dim_sim.dir/
+  TARGET_PDB = insee_n_dim_sim.pdb
+
+build CMakeFiles/insee_n_dim_sim.dir/stats.c.o: C_COMPILER__insee_n_dim_sim_Debug /Users/jonmorinigo/CLionProjects/insee_n_dim_sim/stats.c || cmake_object_order_depends_target_insee_n_dim_sim
+  DEP_FILE = CMakeFiles/insee_n_dim_sim.dir/stats.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -fcolor-diagnostics -std=gnu90
+  OBJECT_DIR = CMakeFiles/insee_n_dim_sim.dir
+  OBJECT_FILE_DIR = CMakeFiles/insee_n_dim_sim.dir
+  TARGET_COMPILE_PDB = CMakeFiles/insee_n_dim_sim.dir/
+  TARGET_PDB = insee_n_dim_sim.pdb
+
+build CMakeFiles/insee_n_dim_sim.dir/torus.c.o: C_COMPILER__insee_n_dim_sim_Debug /Users/jonmorinigo/CLionProjects/insee_n_dim_sim/torus.c || cmake_object_order_depends_target_insee_n_dim_sim
+  DEP_FILE = CMakeFiles/insee_n_dim_sim.dir/torus.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -fcolor-diagnostics -std=gnu90
+  OBJECT_DIR = CMakeFiles/insee_n_dim_sim.dir
+  OBJECT_FILE_DIR = CMakeFiles/insee_n_dim_sim.dir
+  TARGET_COMPILE_PDB = CMakeFiles/insee_n_dim_sim.dir/
+  TARGET_PDB = insee_n_dim_sim.pdb
+
+build CMakeFiles/insee_n_dim_sim.dir/trace.c.o: C_COMPILER__insee_n_dim_sim_Debug /Users/jonmorinigo/CLionProjects/insee_n_dim_sim/trace.c || cmake_object_order_depends_target_insee_n_dim_sim
+  DEP_FILE = CMakeFiles/insee_n_dim_sim.dir/trace.c.o.d
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -fcolor-diagnostics -std=gnu90
+  OBJECT_DIR = CMakeFiles/insee_n_dim_sim.dir
+  OBJECT_FILE_DIR = CMakeFiles/insee_n_dim_sim.dir
+  TARGET_COMPILE_PDB = CMakeFiles/insee_n_dim_sim.dir/
+  TARGET_PDB = insee_n_dim_sim.pdb
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target insee_n_dim_sim
+
+
+#############################################
+# Link the executable insee_n_dim_sim
+
+build insee_n_dim_sim: C_EXECUTABLE_LINKER__insee_n_dim_sim_Debug CMakeFiles/insee_n_dim_sim.dir/arbitrate.c.o CMakeFiles/insee_n_dim_sim.dir/batch.c.o CMakeFiles/insee_n_dim_sim.dir/cam.c.o CMakeFiles/insee_n_dim_sim.dir/circ_pk.c.o CMakeFiles/insee_n_dim_sim.dir/circulant.c.o CMakeFiles/insee_n_dim_sim.dir/data_generation.c.o CMakeFiles/insee_n_dim_sim.dir/dragonfly.c.o CMakeFiles/insee_n_dim_sim.dir/dtt.c.o CMakeFiles/insee_n_dim_sim.dir/event.c.o CMakeFiles/insee_n_dim_sim.dir/exd.c.o CMakeFiles/insee_n_dim_sim.dir/fattree.c.o CMakeFiles/insee_n_dim_sim.dir/get_conf.c.o CMakeFiles/insee_n_dim_sim.dir/graph.c.o CMakeFiles/insee_n_dim_sim.dir/icube.c.o CMakeFiles/insee_n_dim_sim.dir/init_functions.c.o CMakeFiles/insee_n_dim_sim.dir/ksp_routing.c.o CMakeFiles/insee_n_dim_sim.dir/list.c.o CMakeFiles/insee_n_dim_sim.dir/literal.c.o CMakeFiles/insee_n_dim_sim.dir/main.c.o CMakeFiles/insee_n_dim_sim.dir/mapping.c.o CMakeFiles/insee_n_dim_sim.dir/midimew.c.o CMakeFiles/insee_n_dim_sim.dir/misc.c.o CMakeFiles/insee_n_dim_sim.dir/pattern.c.o CMakeFiles/insee_n_dim_sim.dir/perform_mov.c.o CMakeFiles/insee_n_dim_sim.dir/pkt_mem.c.o CMakeFiles/insee_n_dim_sim.dir/print_results.c.o CMakeFiles/insee_n_dim_sim.dir/queue.c.o CMakeFiles/insee_n_dim_sim.dir/queue_inj.c.o CMakeFiles/insee_n_dim_sim.dir/request_ports.c.o CMakeFiles/insee_n_dim_sim.dir/router.c.o CMakeFiles/insee_n_dim_sim.dir/scheduling.c.o CMakeFiles/insee_n_dim_sim.dir/spanning_tree.c.o CMakeFiles/insee_n_dim_sim.dir/spinnaker.c.o CMakeFiles/insee_n_dim_sim.dir/stats.c.o CMakeFiles/insee_n_dim_sim.dir/torus.c.o CMakeFiles/insee_n_dim_sim.dir/trace.c.o
+  FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk
+  OBJECT_DIR = CMakeFiles/insee_n_dim_sim.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_COMPILE_PDB = CMakeFiles/insee_n_dim_sim.dir/
+  TARGET_FILE = insee_n_dim_sim
+  TARGET_PDB = insee_n_dim_sim.pdb
+
+
+#############################################
+# Utility command for edit_cache
+
+build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/jonmorinigo/CLionProjects/insee_n_dim_sim/cmake-build-debug && "/Users/jonmorinigo/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E echo No\ interactive\ CMake\ dialog\ available.
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build edit_cache: phony CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cd /Users/jonmorinigo/CLionProjects/insee_n_dim_sim/cmake-build-debug && "/Users/jonmorinigo/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/bin/cmake" --regenerate-during-build -S/Users/jonmorinigo/CLionProjects/insee_n_dim_sim -B/Users/jonmorinigo/CLionProjects/insee_n_dim_sim/cmake-build-debug
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build rebuild_cache: phony CMakeFiles/rebuild_cache.util
+
+# =============================================================================
+# Target aliases.
+
+# =============================================================================
+# Folder targets.
+
+# =============================================================================
+
+#############################################
+# Folder: /Users/jonmorinigo/CLionProjects/insee_n_dim_sim/cmake-build-debug
+
+build all: phony insee_n_dim_sim
+
+# =============================================================================
+# Built-in targets
+
+
+#############################################
+# Re-run CMake if any of its inputs changed.
+
+build build.ninja: RERUN_CMAKE | /Users/jonmorinigo/CLionProjects/insee_n_dim_sim/CMakeLists.txt /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeCCompiler.cmake.in /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeCCompilerABI.c /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeCInformation.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeCompilerIdDetection.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeDetermineCCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeDetermineCompileFeatures.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeDetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeDetermineCompilerABI.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeDetermineCompilerId.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeDetermineSystem.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeFindBinUtils.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeGenericSystem.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeParseImplicitIncludeInfo.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeParseImplicitLinkInfo.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeParseLibraryArchitecture.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeSystem.cmake.in /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeTestCCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeTestCompilerCommon.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/ADSP-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/ARMCC-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/ARMClang-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/AppleClang-C.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/AppleClang-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/Borland-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/Bruce-C-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/Clang-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/Clang-DetermineCompilerInternal.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/Clang.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/Compaq-C-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/Cray-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/Embarcadero-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/Fujitsu-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/GHS-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/GNU-C-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/GNU.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/HP-C-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/IAR-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/Intel-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/LCC-C-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/MSVC-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/NVHPC-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/NVIDIA-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/PGI-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/PathScale-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/SCO-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/SDCC-C-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/SunPro-C-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/TI-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/Watcom-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/XL-C-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/XLClang-C-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/zOS-C-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Internal/FeatureTesting.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Apple-AppleClang-C.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Apple-Clang-C.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Apple-Clang.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Darwin-Initialize.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Darwin.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.24.2/CMakeCCompiler.cmake CMakeFiles/3.24.2/CMakeSystem.cmake
+  pool = console
+
+
+#############################################
+# A missing CMake input file is not an error.
+
+build /Users/jonmorinigo/CLionProjects/insee_n_dim_sim/CMakeLists.txt /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeCCompiler.cmake.in /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeCCompilerABI.c /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeCInformation.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeCompilerIdDetection.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeDetermineCCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeDetermineCompileFeatures.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeDetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeDetermineCompilerABI.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeDetermineCompilerId.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeDetermineSystem.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeFindBinUtils.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeGenericSystem.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeParseImplicitIncludeInfo.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeParseImplicitLinkInfo.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeParseLibraryArchitecture.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeSystem.cmake.in /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeTestCCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/CMakeTestCompilerCommon.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/ADSP-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/ARMCC-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/ARMClang-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/AppleClang-C.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/AppleClang-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/Borland-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/Bruce-C-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/Clang-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/Clang-DetermineCompilerInternal.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/Clang.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/Compaq-C-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/Cray-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/Embarcadero-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/Fujitsu-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/GHS-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/GNU-C-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/GNU.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/HP-C-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/IAR-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/Intel-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/LCC-C-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/MSVC-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/NVHPC-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/NVIDIA-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/PGI-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/PathScale-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/SCO-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/SDCC-C-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/SunPro-C-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/TI-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/Watcom-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/XL-C-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/XLClang-C-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Compiler/zOS-C-DetermineCompiler.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Internal/FeatureTesting.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Apple-AppleClang-C.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Apple-Clang-C.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Apple-Clang.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Darwin-Initialize.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/Darwin.cmake /Users/jonmorinigo/Library/Application$ Support/JetBrains/Toolbox/apps/CLion/ch-0/223.8617.54/CLion.app/Contents/bin/cmake/mac/share/cmake-3.24/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.24.2/CMakeCCompiler.cmake CMakeFiles/3.24.2/CMakeSystem.cmake: phony
+
+
+#############################################
+# Clean all the built files.
+
+build clean: CLEAN
+
+
+#############################################
+# Print all primary targets available.
+
+build help: HELP
+
+
+#############################################
+# Make the all target the default.
+
+default all

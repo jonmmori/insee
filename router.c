@@ -62,20 +62,20 @@ void router_init(void) {
 			network[i].p[j].histo = alloc(sizeof(CLOCK_TYPE) * (buffer_cap + 1));
 			network[i].p[j].faulty = 0;
 		}
-
+        network[i].rcoord = calloc(ndim, sizeof(long));
 		network[i].op_i = alloc(sizeof(long) * radix);
 		network[i].nbor = alloc(sizeof(long) * radix);
 		network[i].nborp = alloc(sizeof(long) * radix);
 
                 // Initializes to NULL_PORT. Required for random topologies. Should not have any effect on the deterministic ones.
                 for(j = 0; j < radix; j++){
-                        network[i].op_i[j] = NULL_PORT;
-		        network[i].nbor[j] = NULL_PORT;
-		        network[i].nborp[j] = NULL_PORT;
+                    network[i].op_i[j] = NULL_PORT;
+		            network[i].nbor[j] = NULL_PORT;
+		            network[i].nborp[j] = NULL_PORT;
                 }
 
 		if (topo<DIRECT)
-			coords(i, &network[i].rcoord[D_X], &network[i].rcoord[D_Y], &network[i].rcoord[D_Z]);
+			coords(i, network[i].rcoord);
 		else if (topo==ICUBE)
 			coords_icube(i, &network[i].rcoord[D_X], &network[i].rcoord[D_Y], &network[i].rcoord[D_Z]);
 		// Tree coordinates will be written when the topology is created.
@@ -192,12 +192,12 @@ void init_ports(long i){
 * @param cz Coordinate Z is returned here.
 * @see router.rcoord
 */
-void coords (long ad, long *cx, long *cy, long *cz) {
-	long a1;
-	*cz = ad/(nodes_x*nodes_y);
-	a1 = ad%(nodes_x*nodes_y);
-	*cy = a1/nodes_x;
-	*cx = a1%nodes_x;
+void coords (long ad, long *coord) {
+    int i;
+    for(i=0; i<ndim; i++){
+        coord[i] = ad%nodes_per_dim[i];
+        ad=ad/nodes_per_dim[i];
+    }
 }
 
 /**

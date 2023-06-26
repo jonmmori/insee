@@ -84,6 +84,7 @@ void do_event (event_q *q, event *i) {
 		free (e);
 		if (q->head==NULL)
 			q->tail=NULL;
+
 	}
 }
 

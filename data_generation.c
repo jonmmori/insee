@@ -132,6 +132,7 @@ port_type select_input_port_dor_only(long i, long dest) {
 *
 * @see select_input_port
 */
+
 port_type select_input_port_shortest_profitable(long i, long dest) {
 	port_type currport, selport;
 	long minlen, currlen ;
@@ -490,27 +491,121 @@ void generate_pkt(long i) {
 					d = (long)(1.0*nprocs*rand()/(RAND_MAX+1.0));
 				} while (d == i || network[d].source!=INDEPENDENT_SOURCE);
 			} else {
-				if (!event_empty(&network[i].events)){
-					event e;
-					while (!event_empty(&network[i].events) && (e=head_event(&network[i].events)).type==RECEPTION){
-						if (occurred(&network[i].occurs, e))
-							rem_head_event(&network[i].events);
-						else
-							break;
-					}
-					if (!event_empty(&network[i].events) && head_event(&network[i].events).type==SENDING){
-						do_event(&network[i].events, &e);
-						packet.task = e.task;
-						packet.length = e.length;
-						d=e.pid;
-					}
-					else
-						return ;
-				}
-				else
-					return ;
+                //finish
+                if(network[i].source!=FINISHED){
+                    if (!event_empty(&network[i].events)){
+                        event e;
+                        while (!event_empty(&network[i].events) && (e=head_event(&network[i].events)).type==RECEPTION){
+                            if (occurred(&network[i].occurs, e))
+                                rem_head_event(&network[i].events);
+                            else
+                                break;
+                        }
+                        if (!event_empty(&network[i].events) && head_event(&network[i].events).type==SENDING){
+                            do_event(&network[i].events, &e);
+                            packet.task = e.task;
+                            packet.length = e.length;
+                            d=e.pid;
+                        }else if(event_empty(&network[i].events)){
+                            //change node source to FINISHED
+                            network[i].source=FINISHED;
+                            ////> change bitmap of app
+                            if(network[i].appid==0){
+                                printf("App 0 Node %d finished", i);
+                            }
+                            set_bitmap(i, network[i].appid);
+                            //Check if all nodes of app have finished in bitmap
+                            //If all have been done we have to empty events and ocurred queues, then del app, and call apx_traces
+                            // to laod next app, if not continue
+                            if(check_finished_app(network[i].appid)==1){
+                                d_app(network[i].appid);
+                                apx_traces();
+                            }
+                            return;
+                        }else{
+                            return;
+                        }
+                    }else{
+                        //change node source to FINISHED
+                        network[i].source=FINISHED;
+                        ////> change bitmap of app
+                        if(network[i].appid==0){
+                            printf("App 0 Node %d finished", i);
+                        }
+                        set_bitmap(i, network[i].appid);
+                        //Check if all nodes of app have finished in bitmap
+                        //If all have been done we have to empty events and ocurred queues, then del app, and call apx_traces
+                        // to laod next app, if not continue
+                        if(check_finished_app(network[i].appid)==1){
+                            d_app(network[i].appid);
+                            apx_traces();
+                        }
+                        return ;
+                    }
+                }else{
+                    return;
+                }
 			}
 			break;
+            case MPA:
+                if (network[i].source==INDEPENDENT_SOURCE) { // Background traffic - uniform
+                    do {
+                        d = (long)(1.0*nprocs*rand()/(RAND_MAX+1.0));
+                    } while (d == i || network[d].source!=INDEPENDENT_SOURCE);
+                } else {
+                    //finish
+                    if(network[i].source!=FINISHED){
+                        if (!event_empty(&network[i].events)){
+                            event e;
+                            while (!event_empty(&network[i].events) && (e=head_event(&network[i].events)).type==RECEPTION){
+                                if (occurred(&network[i].occurs, e))
+                                    rem_head_event(&network[i].events);
+                                else
+                                    break;
+                            }
+                            if (!event_empty(&network[i].events) && head_event(&network[i].events).type==SENDING){
+                                do_event(&network[i].events, &e);
+                                packet.task = e.task;
+                                packet.length = e.length;
+                                d=e.pid;
+                            }else if(event_empty(&network[i].events)){
+                                //change node source to FINISHED
+                                if(i==1566){
+                                    i=i;
+                                }
+                                network[i].source=FINISHED;
+                                ////> change bitmap of app
+                                set_bitmap(i, network[i].appid);
+                                //Check if all nodes of app have finished in bitmap
+                                //If all have been done we have to empty events and ocurred queues, then del app, and call apx_traces
+                                // to load next app, if not continue
+                                if(check_finished_app(network[i].appid)==1){
+                                    d_app(network[i].appid);
+                                    apx_traces();
+                                }
+                                return;
+                            }else{
+                                return;
+                            }
+                        }else{
+                            //change node source to FINISHED
+                            network[i].source=FINISHED;
+                            ////> change bitmap of app
+                            set_bitmap(i, network[i].appid);
+                            //Check if all nodes of app have finished in bitmap
+                            //If all have been done we have to empty events and ocurred queues, then del app, and call apx_traces
+                            // to laod next app, if not continue
+                            if(check_finished_app(network[i].appid)==1){
+                                d_app(network[i].appid);
+                                apx_traces();
+                            }
+                            return ;
+                        }
+                    }else{
+                        return;
+                    }
+                }
+                break;
 #endif
 		default:
 			panic("Bad traffic pattern");
@@ -776,7 +871,8 @@ void init_injection	(void) {
 			case POPULATION:
 			case HISTOGRAM:
 #if (TRACE_SUPPORT != 0)
-			case TRACE:
+            case TRACE:
+            case MPA:
 #endif
 			break;
 			default:
@@ -806,6 +902,7 @@ void injection_finish(void){
 #if (TRACE_SUPPORT != 0)
     switch(pattern){
         case TRACE:
+        case MPA:
             trace_finish();
             break;
         default:

@@ -115,7 +115,7 @@ typedef struct port {
 */
 typedef struct router {
 	// General info
-	long rcoord[3];	///< Stores the router coordinates X,Y,Z (only used in dally CV management)
+	long * rcoord;	///< Stores the router coordinates X,Y,Z (only used in dally CV management)
 	long * nbor;	///< The id's of neighbors
 	long * nborp;	///< The id's of neighbors' ports
 
@@ -156,6 +156,7 @@ typedef struct router {
 #if (TRACE_SUPPORT > 1)
 	event_q events;		///< A Queue with events to occur
 	event_l *occurs;	///< Lists with occurred events (one for each messsage source)
+	long appid;         ///< Id of app (only used with APPMIX tpattern)
 #endif /* TRACE */
 
         cam_t *cam;

@@ -40,6 +40,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 /** The Configuration file. */
 //#ifndef DEFAULT_CONF_FILE
 #define DEFAULT_CONF_FILE "fsin.conf"
+#define DEFAULT_MPA_FILE "apps.apx"
 //#endif // DEFAULT_CONF_FILE
 
 double bg_load;
@@ -49,7 +50,9 @@ static void set_default_conf(void);
 static void get_option(char *);
 static void get_conf_file(char *);
 static void verify_conf(void);
-
+long *nodes_per_dim;
+long *bub;
+char *mpa_file;
 /**
 * Default values for options are specified here.
 * @see literal.c
@@ -166,6 +169,7 @@ literal_t pattern_l[] = {
 	{ ADV,			"wc"}, // From 'Technology-Driven, Highly-Scalable Dragonfly Topology'
 	{ BISECT, 		"bisect"},
 	{ BISECT, 		"bisection"},
+    {MPA, "mpa"},
 	LITERAL_END
 };
 
@@ -387,6 +391,7 @@ literal_t placement_l[] = {
 	{ DIAGONAL_PLACE,		"diagonal"},
 	{ ICUBE_PLACE,			"icube"},
 	{ FILE_PLACE,			"file"},
+    {MPA, "mpa"},
 	LITERAL_END
 };
 
@@ -439,6 +444,7 @@ void get_conf(long argn, char ** args) {
 */
 void get_option(char * option) {
 	int opt;
+    int i;
 	long aux;
 
 	char * name;
@@ -446,6 +452,7 @@ void get_option(char * option) {
 	char * param;
 	char * sep=" _";
 	char message[100];
+    char *value2;
 
 	name = strtok(option, "=");
 	if(!literal_value(options_l, name, (int*) &opt)) {
@@ -482,32 +489,34 @@ void get_option(char * option) {
 			param = strtok(NULL, sep);
 			if (param)
 				stride = atoi(param);
-		}
+		} else if (pattern == MPA){
+            param = strtok(NULL, sep);
+            if (param)
+                mpa_file = param;
+        }
 		break;
 	case 5:
 		sscanf(value, "%lf", &load);
 		break;
 	case 6:
-		param = strtok(value, sep);
-		if(!literal_value(topology_l, param, (int*)&topo))
-			panic("get_conf: Unknown topology");
-		if(topo<DIRECT){
-			param = strtok(NULL, sep);
-			if (param) {
-				nodes_x = atoi(param);
-				ndim = 1;
-			}
-			param = strtok(NULL, sep);
-			if (param) {
-				nodes_y = atoi(param);
-				ndim = 2;
-			}
-			param = strtok(NULL, sep);
-			if (param) {
-				nodes_z = atoi(param);
-				ndim = 3;
-			}
-		}
+        value2 = strdup(value);
+        param = strtok(value, sep);
+        if(!literal_value(topology_l, param, (int*)&topo))
+            panic("get_conf: Unknown topology");
+        if(topo<DIRECT){
+            ndim = 0;
+            param = strtok(NULL,sep);
+            while(param!=NULL){
+                param = strtok(NULL,sep);
+                ndim++;
+            }
+            nodes_per_dim = alloc(sizeof(long)*ndim);
+            param = strtok(value2, sep);
+            for(i=0; i<ndim; i++) {
+                param = strtok(NULL, sep);
+                nodes_per_dim[i] = atoi(param);
+            }
+        }
 		else if (topo==FATTREE){
 			param = strtok(NULL, sep);
 			if (param) stDown=stUp = atoi(param);
@@ -630,8 +639,13 @@ void get_option(char * option) {
 			panic("get_conf: Unknown request mode");
 		break;
 	case 13:
+        bub = calloc(ndim, sizeof(long));
 		param = strtok(value, sep);
-		bub_x = bub_y = bub_z = 2;
+        int k;
+        for(k=0; k<ndim;k++){
+            bub[k] = atoi(param);
+        }
+        /*
 		if (param)
 			bub_y = bub_z = bub_x = atoi(param);
 		param = strtok(NULL, sep);
@@ -640,6 +654,7 @@ void get_option(char * option) {
 		param = strtok(NULL, sep);
 		if (param)
 			bub_z = atoi(param);
+         */
 		break;
 	case 14:
 		if(!literal_value(atype_l, value, (int*) &arb_mode))
@@ -925,7 +940,7 @@ void get_option(char * option) {
 */
 void verify_conf(void) {
 	char mon[128];
-
+    int i;
 	if(pkt_len < 1 || phit_len < 1)
 		panic("verify_conf: Illegal packet length");
 	if( !(bub_adap[1]<=buffer_cap && bub_x<=buffer_cap && bub_y<=buffer_cap && bub_z<=buffer_cap))
@@ -1003,7 +1018,10 @@ void verify_conf(void) {
 
 	// Direct topologies are mesh, torus, ttorus and midimew.
 	if (topo < DIRECT) {
-		NUMNODES = (nodes_x*nodes_y*nodes_z);
+        NUMNODES = 1;
+        for(i=0;i<ndim;i++){
+            NUMNODES*=nodes_per_dim[i];
+        }
 		nprocs = NUMNODES;
 		radix=ndim*nways;
 		if (placement==SHUFFLE_PLACE){
@@ -1362,6 +1380,9 @@ void verify_conf(void) {
 		panic("Tree request and/or management selected for a not supported topology");
 	if (topo>CUBE)
 		nodes_x=stDown;		// This way the results will be printed in columns that are the number of nodes attached to each switch.
+    if (pattern==MPA)
+        placement=MPA_PLACE;
+
 }
 
 /**
@@ -1454,6 +1475,7 @@ void set_default_conf (void) {
 	vc_inj = VC_INJ_ZERO;
 
 	nnics=1;
+    mpa_file= DEFAULT_MPA_FILE;
 
 #if (EXECUTION_DRIVEN != 0)
 	fsin_cycle_relation = 10;

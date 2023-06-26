@@ -636,12 +636,14 @@ int main(int argc, char *argv[]) {
 	init_network();
 	init_injection();
 
-	if (pheaders > 0)
+	if (pheaders > 0 && pattern!=MPA)
 		print_headers();
 
 	run_network();
 	time(&end_time);
-	print_results(start_time, end_time);
+    if(pattern!=MPA)
+	    print_results(start_time, end_time);
+
 
         finish_network();
         injection_finish();

@@ -659,27 +659,9 @@ void request_port_dally_trc(long i, port_type s_p) {
         d_c = 1; // ONE
     else d_c = l; // "L"
 
-    a_x=network[i].rcoord[D_X];
-    a_y=network[i].rcoord[D_Y];
-    a_z=network[i].rcoord[D_Z];
-
-    switch (d_d) {  // only possible values are D_X, D_Y, D_Z
-        case D_X:
-            if (a_x == 0)
-                d_c = 0;
-            break;
-        case D_Y:
-            if (a_y == 0)
-                d_c = 0;
-            break;
-        case D_Z:
-            if (a_z == 0)
-                d_c = 0;
-            break;
-        default:
-            panic("Should not reach this point in request_port_dally_trc");
+    if(network[i].rcoord[d_d]==0){
+        d_c=0;
     }
-
     d_p = port_address(dir(d_d, d_w), d_c);
     if (!check_restrictions(i, s_p, d_p, B_FALSE)) {
         if (extract && s_p >= p_inj_first)
@@ -712,33 +694,13 @@ void request_port_dally_basic (long i, port_type s_p) {
         return;
     // Won't use array mt -- use d_d and d_w instead
 
-    a_x=network[i].rcoord[D_X];
-    a_y=network[i].rcoord[D_Y];
-    a_z=network[i].rcoord[D_Z];
 
     pkt=&pkt_space[ph->packet];
-    switch (d_d) {   // only possible values are D_X, D_Y, D_Z
-        case D_X:
-            if ((a_x + pkt->rr.rr[d_d] >= nodes_x) || (a_x + pkt->rr.rr[d_d] < 0))
-                d_c = 0;
-            else
-                d_c = 1;
-            break;
-        case D_Y:
-            if ((a_y + pkt->rr.rr[d_d] >= nodes_y) || (a_y + pkt->rr.rr[d_d] < 0))
-                d_c = 0;
-            else
-                d_c = 1;
-            break;
-        case D_Z:
-            if ((a_z + pkt->rr.rr[d_d] >= nodes_z) || (a_z + pkt->rr.rr[d_d] < 0))
-                d_c = 0;
-            else
-                d_c = 1;
-            break;
-        default:
-            panic("Should not reach this point in request_port_dally_basic");
-    }
+   if ((network[i].rcoord[d_d] + pkt->rr.rr[d_d] >= nodes_per_dim[d_d]) || (network[i].rcoord[d_d] + pkt->rr.rr[d_d] < 0)) {
+       d_c = 0;
+   }else{
+        d_c = 1;
+   }
 
     d_p = port_address(dir(d_d, d_w), d_c);
     if (!check_restrictions(i, s_p, d_p, B_FALSE)) {
@@ -771,29 +733,8 @@ void request_port_dally_improved(long i, port_type s_p) {
         return;
     // Won't use array mt -- use d_d and d_w instead
 
-    a_x=network[i].rcoord[D_X];
-    a_y=network[i].rcoord[D_Y];
-    a_z=network[i].rcoord[D_Z];
-
-    switch (d_d) {
-        case D_X:
-            tmp_dim = a_x;
-            passes = nodes_x;
-            break;
-        case D_Y:
-            tmp_dim = a_y;
-            passes = nodes_y;
-            break;
-        case D_Z:
-            tmp_dim = a_z;
-            passes = nodes_z;
-            break;
-        default:
-            panic("Should not reach this point in request_port_dally_improved");
-    }
-
-    if ((tmp_dim + pkt_space[ph->packet].rr.rr[d_d] < 0) ||
-            (tmp_dim + pkt_space[ph->packet].rr.rr[d_d] >= passes))
+    if ((network[i].rcoord[d_d] + pkt_space[ph->packet].rr.rr[d_d] < 0) ||
+            (network[i].rcoord[d_d] + pkt_space[ph->packet].rr.rr[d_d] >= nodes_per_dim[d_d]))
         d_c = 0;
     else {
         if (rand() >= (RAND_MAX/2))
@@ -1083,32 +1024,15 @@ bool_t check_restrictions (long i, port_type s_p, port_type d_p, bool_t chkbub) 
 
     if (!chkbub)
         return B_TRUE; // Simple VCT check
-
     // Let us check additional restrictions
     if ((req_mode == BUBBLE_OBLIVIOUS_REQ) || (req_mode == DOUBLE_OBLIVIOUS_REQ) ||
             (req_mode == DOUBLE_ADAPTIVE_REQ) || (l == ESCAPE)) {
-        switch (j) {
-            case D_X:
-                if (!bub_x)
-                    return B_TRUE;
-                if ((s_p != d_p) && (queue_space(&(network[i].p[d_p].q)) < (bub_x*pkt_len)))
-                    return B_FALSE;
-                break;
-            case D_Y:
-                if (!bub_y)
-                    return B_TRUE;
-                if ((s_p != d_p) && (queue_space(&(network[i].p[d_p].q)) < (bub_y*pkt_len)))
-                    return B_FALSE;
-                break;
-            case D_Z:
-                if (!bub_z)
-                    return B_TRUE;
-                if ((s_p != d_p) && (queue_space(&(network[i].p[d_p].q)) < (bub_z*pkt_len)))
-                    return B_FALSE;
-                break;
-            default: break;
-        }
+            if (!bub[j])
+                return B_TRUE;
+            if ((s_p != d_p) && (queue_space(&(network[i].p[d_p].q)) < (bub[j]*pkt_len)))
+                return B_FALSE;
     }
+
 
     // Destination channel is adaptive. VCT allows pass. What about bubble to adaptive (bub_adap)? Only used when injecting
     if (!bub_adap[network[i].congested])
@@ -1551,7 +1475,7 @@ bool_t check_restrictions_icube (long i, port_type s_p, port_type d_p) {
     d_np= (network[i].nborp[d_p/nchan]*nchan)+(d_p%nchan);
 
     if (!(i<nprocs || d_n<nprocs) && (s_p != d_np) && ((d_p % nchan)==0))	// If the packet doesn't come/go to a NIC, doesn't keep the VC and goes to ESCAPE.
-        credit=bub_x;	// Check the bubble, not just the VCT.
+        credit=bub[0];	// Check the bubble, not just the VCT.
     if (i>=nprocs && ((d_p % nchan) != 0) && s_p < (nodes_per_switch*nchan)) // if this is an adaptive channel and comes from a NIC (inyection in the switch)
         credit=pkt_len*bub_adap[network[i].congested];
 

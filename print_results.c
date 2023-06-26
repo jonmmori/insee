@@ -223,22 +223,28 @@ void print_results(time_t start_time, time_t end_time) {
 		printf("%ld mins, ",i/60);
 		i=i%60;
 	}
+
 	printf("%ld secs\n",i);
 	printf("Cycles per Second:                %f\n\n", 1.0*sim_clock/(end_time-start_time));
 
 	// Random seed
+    printf("load selected %f\n", load);
 	printf("Random seed:                      %ld\n\n", r_seed);
 
 	// Network & router's details
 	printf("Topology, uni(1)/bidir(2):        %s(%ld)", topo_s, nways);
 
 	if (topo < DIRECT){
-		if (ndim == 1)
-			printf(" 1-D: %ld = %ld nodes\n", nodes_x, NUMNODES);
-		else if (ndim == 2)
-			printf(" 2-D: %ldx%ld = %ld nodes\n", nodes_x, nodes_y, NUMNODES);
-		else if (ndim == 3)
-			printf(" 3-D: %ldx%ldx%ld = %ld nodes\n", nodes_x, nodes_y, nodes_z, NUMNODES);
+        int k;
+        printf(" %d-D: ", ndim);
+        for (k = 0; k < ndim; ++k) {
+            if(k==ndim-1){
+                printf("%ld = %ld nodes\n", nodes_per_dim[k], NUMNODES);
+            }else{
+                printf("%ldx", nodes_per_dim[k]);
+            }
+
+        }
 
 		if (topo == TWISTED){
 			printf("        with skews:                     ");
